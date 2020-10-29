@@ -1,22 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './components/homepage/Home'
+import Chat from './components/Chatapp/Chat'
+import Third from './components/3rdpage/Third'
+import Fourth from './components/4thpage/Fourth'
 
-import Chat from './components/Chat';
+
 
 export default function App() {
+  const Stack = createStackNavigator();
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <Chat/>
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator  initialRouteName="Home"
+        screenOptions={{
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "#000"
+          },
+          headerTintColor: "#f4f4f4",
+          headerTitleStyle: {
+            fontWeight: "bold"
+          }
+        }}>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Chat" component={Chat} />
+      <Stack.Screen name="Third" component={Third} />
+      <Stack.Screen name="Fourth" component={Fourth} />
+    </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    marginTop:30
-  },
-});

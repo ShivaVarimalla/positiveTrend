@@ -12,13 +12,13 @@ const Input = ({})=>(
 )
 const styles = StyleSheet.create({
     view:{
+        height : height*0.1,
         width : width,
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderRadius: 4,
     },
 Input:{
-    height: height/7,
     width : width-(width/7),
     alignSelf: 'stretch',
     backgroundColor: 'gray',

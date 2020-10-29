@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Messages from './Messages';
 import Infobar from './Infobar';
 import Input from './Input';
-import { View } from "react-native";
+import { View,StyleSheet } from "react-native";
 
 
 let socket;
@@ -25,7 +25,7 @@ user:'amruth', text:'hello'}]);
     
     <View>
        
-      <View>
+      <View style = {styles.container}>
           <Infobar room={room} />
           <Messages />
         
@@ -34,6 +34,15 @@ user:'amruth', text:'hello'}]);
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container:{
+    display : 'flex',
+    flexDirection : 'column',
+    justifyContent: 'center',
+    alignItems: 'stretch',
+  }
+})
+
 
 
 export default Chat;

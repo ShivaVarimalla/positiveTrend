@@ -1,7 +1,8 @@
 import React from 'react'
-import closeIcon from '../Icons/closeIcon.png';
-import onlineIcon from '../Icons/onlineIcon.png';
-import { StyleSheet, Text, View,Image } from 'react-native';
+import closeIcon from '../../Icons/closeIcon.png';
+import onlineIcon from '../../Icons/onlineIcon.png';
+import { StyleSheet, Text, View,Image,Dimensions } from 'react-native';
+var height = Dimensions.get('window').height; //full
 
 const InfoBar = ({room})=>(
     <View style = {styles.InfoBar}>
@@ -20,6 +21,7 @@ const InfoBar = ({room})=>(
 const styles = StyleSheet.create({
 
     InfoBar : {
+        height: height*0.1,
         alignSelf: 'stretch',
         flexDirection: 'row',
         alignItems: 'center',
