@@ -17,14 +17,18 @@ const Chat = ({navigation}) => {
     user:'shiva', text: 'Hello'
   },  
   {
-user:'amruth', text:'hello'}]);
+    user:'amruth', text:'hello'},
+  {
+    user:'vamshi', text:'fhsdkjhfkjds'},
+  {
+    user:'reddy', text:'dfjsdkjf'}]);
   const [flag, setFlag]=useState(0);
 
   return (
     <View>
       <View style = {styles.container}>
           <Infobar room={room} />
-            <Messages />
+            <Messages messages={messages}/>
           <Input/>
       </View>
       <Navigation navigation={navigation}/>

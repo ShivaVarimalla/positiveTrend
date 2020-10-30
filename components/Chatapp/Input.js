@@ -6,13 +6,14 @@ var height = Dimensions.get('window').height; //full
 const Input = ({})=>(
     <View style={styles.view}>
     <TextInput style= {styles.Input}>
+        
 </TextInput>
 <TouchableOpacity style={styles.button}><Text style={styles.text}>Send</Text></TouchableOpacity>
 </View>
 )
 const styles = StyleSheet.create({
     view:{
-        height : height*0.1,
+        height : height*0.3,
         width : width,
         flexDirection: 'row',
         justifyContent: 'space-between',
