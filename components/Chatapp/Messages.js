@@ -11,7 +11,7 @@ const Messages = ({messages,name})=>(
 const styles = StyleSheet.create({
 messages:{
    height: height-(height*0.15),
-   backgroundColor: 'red',
+   backgroundColor: 'white',
 
 }
 })

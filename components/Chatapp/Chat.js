@@ -1,15 +1,14 @@
-
 import React, { useState, useEffect } from "react";
-
 import Messages from './Messages';
 import Infobar from './Infobar';
 import Input from './Input';
 import { View,StyleSheet } from "react-native";
+import Navigation from '../navigation/Navigation'
 
 
 let socket;
 
-const Chat = ({ }) => {
+const Chat = ({navigation}) => {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
   const [users, setUsers] = useState('');
@@ -22,15 +21,13 @@ user:'amruth', text:'hello'}]);
   const [flag, setFlag]=useState(0);
 
   return (
-    
     <View>
-       
       <View style = {styles.container}>
           <Infobar room={room} />
-          <Messages />
-        
+            <Messages />
           <Input/>
       </View>
+      <Navigation navigation={navigation}/>
     </View>
   );
 }
