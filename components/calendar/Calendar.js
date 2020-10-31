@@ -1,12 +1,12 @@
 import React from 'react'
 import { View,Text} from 'react-native'
 
-const Fourth =({navigation})=>{
+const Calendar =({})=>{
+    return(
     <View>
          <View>
             <Text>Fourth</Text>
         </View>
-    <View><Navigation navigation={navigation}/></View>
     </View>
-}
-export default Fourth;
+    )}
+export default Calendar;

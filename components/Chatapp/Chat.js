@@ -1,45 +1,60 @@
-import React, { useState, useEffect } from "react";
-import Messages from './Messages';
-import Infobar from './Infobar';
-import Input from './Input';
-import { View,StyleSheet } from "react-native";
-import Navigation from '../navigation/Navigation'
-
-
-let socket;
-
-const Chat = ({navigation}) => {
-  const [name, setName] = useState('');
-  const [room, setRoom] = useState('');
-  const [users, setUsers] = useState('');
-  const [message, setMessage] = useState('');
-  const [messages, setMessages] = useState([{
-    user:'shiva', text: 'Hello'
-  },  
-  {
-user:'amruth', text:'hello'}]);
-  const [flag, setFlag]=useState(0);
-
+import React, { useState, useCallback, useEffect } from 'react'
+import { GiftedChat,Bubble } from 'react-native-gifted-chat'
+ 
+export default function Chat() {
+  const [messages, setMessages] = useState([]);
+ 
+  useEffect(() => {
+    setMessages([
+      {
+        _id: 1,
+        text: 'Hello shiva',
+        createdAt: new Date(),
+        user: {
+          _id: 2,
+          name: 'shiva',
+          avatar: 'https://placeimg.com/140/140/any',
+        },
+      },
+    ])
+  }, [])
+ 
+  const onSend = useCallback((messages = []) => {
+    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+  }, [])
+ 
   return (
-    <View>
-      <View style = {styles.container}>
-          <Infobar room={room} />
-            <Messages />
-          <Input/>
-      </View>
-      <Navigation navigation={navigation}/>
-    </View>
+    <GiftedChat
+      messages={messages}
+      onSend={messages => onSend(messages)}
+      user={{
+        _id: 1,
+      }}
+      renderBubble={renderBubble}
+    />
+  )
+    }
+
+function renderBubble(props) {
+  return (
+    // Step 3: return the component
+    <Bubble
+      {...props}
+      wrapperStyle={{
+        left: {
+          // Here is the color change
+          backgroundColor: '#8caebd'
+        },
+        right: {
+          // Here is the color change
+          backgroundColor: '#85809c'
+        }
+      }}
+      textStyle={{
+        right: {
+          color: '#fff'
+        }
+      }}
+    />
   );
 }
-const styles = StyleSheet.create({
-  container:{
-    display : 'flex',
-    flexDirection : 'column',
-    justifyContent: 'center',
-    alignItems: 'stretch',
-  }
-})
-
-
-
-export default Chat;
