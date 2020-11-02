@@ -36,6 +36,7 @@ export default function Chat() {
       }}
       renderBubble={renderBubble}
     />
+
     </View>
   )
     }
