@@ -2,6 +2,8 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {Entypo } from '@expo/vector-icons';
+import Login from './components/homepage/Login'
+import SignUp from './components/homepage/SignUp'
 import Home from './components/homepage/Home'
 import Chat from './components/Chatapp/Chat'
 import Calendar from './components/calendar/Calendar';
