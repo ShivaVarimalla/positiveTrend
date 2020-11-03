@@ -22,29 +22,37 @@ class SignUp extends Component {
             <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Enter User Name"
-               placeholderTextColor = "#9a73ef"
+               placeholderTextColor = "black"
                autoCapitalize = "none"
                onChangeText = {this.handleEmail}/>
 
 <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Password"
-               placeholderTextColor = "#9a73ef"
+               secureTextEntry = {true}
+               placeholderTextColor = "black"
                autoCapitalize = "none"
                onChangeText = {this.handlePassword}/>
             
+<TextInput style = {styles.input}
+               underlineColorAndroid = "transparent"
+               placeholder = "ReEnterPassword"
+               secureTextEntry = {true}
+               placeholderTextColor = "black"
+               autoCapitalize = "none"
+               onChangeText = {this.handlePassword}/>            
 
 <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Email Id"
-               placeholderTextColor = "#9a73ef"
+               placeholderTextColor = "black"
                autoCapitalize = "none"
                onChangeText = {this.handleEmail}/>
 
 <TextInput style = {styles.input}
                underlineColorAndroid = "transparent"
                placeholder = "Phone Number"
-               placeholderTextColor = "#9a73ef"
+               placeholderTextColor = "black"
                autoCapitalize = "none"
                onChangeText = {this.handleEmail}/>
             
@@ -61,7 +69,6 @@ class SignUp extends Component {
              style = {styles.submitButton}
              onPress={
                  ()=>{ this.props.navigation.replace('Login')
-              
              }}
              >
             <Text style = {styles.submitButtonText}> Login </Text>
@@ -77,21 +84,22 @@ const styles = StyleSheet.create({
       paddingTop: 23
    },
    input: {
+      borderRadius: 10,
       margin: 15,
       height: 40,
-      borderColor: '#7a42f4',
+      borderColor: 'coral',
       borderWidth: 1,
       textAlign:'center'
    },
    submitButton: {
-      backgroundColor: '#2a92f8',
+      borderRadius: 10,
+      backgroundColor: 'coral',
       padding: 10,
       margin: 15,
       height: 40,
    },
    submitButtonText:{
       color: 'white',
-
       textAlign:'center'
    }
 })

@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback, useEffect,Fragment } from 'react'
 import { View } from 'react-native';
 import { GiftedChat,Bubble } from 'react-native-gifted-chat'
 import InfoBar from './InfoBar'
@@ -26,7 +26,7 @@ export default function Chat() {
   }, [])
  
   return (
-    <View>
+    <Fragment>
       <InfoBar/>
     <GiftedChat
       messages={messages}
@@ -36,8 +36,7 @@ export default function Chat() {
       }}
       renderBubble={renderBubble}
     />
-
-    </View>
+  </Fragment>
   )
     }
 
