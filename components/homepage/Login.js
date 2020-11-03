@@ -46,7 +46,7 @@ class Login extends Component {
                     if(this.state.email === "capstone" && this.state.password ==='capstone'){
                   this.props.navigation.replace('Home')}
                   else{
-                      alert("Check")
+                      alert("Please Register an Account")
                   }
                 }
                }>
