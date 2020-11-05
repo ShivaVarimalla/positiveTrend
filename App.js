@@ -17,18 +17,19 @@ export default function App() {
 tabBarIcon: ({ focused, color, size }) => {
 let iconName;
 if (route.name === 'Home') {
-iconName = focused ? 'home' : 'home';
+iconName = 'home' 
 color = focused ? 'coral' : 'black';
-} else if (route.name === 'Chat') {
-iconName = focused ? 'chat' : 'chat';
+} 
+else if (route.name === 'Chat') {
+iconName = 'chat';
 color = focused ? 'coral' : 'black';
 }
 else if (route.name === 'graph') {
-  iconName = focused ? 'area-graph' : 'area-graph';
+  iconName = 'area-graph';
   color = focused ? 'coral' : 'black';
   }
   else if (route.name === 'calendar') {
-    iconName = focused ? 'calendar' : 'calendar';
+    iconName = 'calendar';
     color = focused ? 'coral' : 'black';
     }
 
