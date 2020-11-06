@@ -32,26 +32,26 @@ const Login = ({navigation,changeLog})=>{
     return(
 <View>
    <ScrollView>
-  <View style= {styles.LoginRoom} >   
-    <View style = {styles.Container}>
-    <View style={{flexDirection:'row',justifyContent:'center'}}>
+     <View style= {styles.LoginRoom} >   
+       <View style = {styles.Container}>
+         <View style={{flexDirection:'row',justifyContent:'center'}}>
                   <Image
                      style={{height:200,width:200}}
                      source={Trend}
                   />
-               </View>
+         </View>
          <View style = {styles.Login}>
             <Text style= {styles.Text}>Login</Text>
                   <TextInput style = {styles.TextInput} placeholder = "Username"  placeholderTextColor='white'
                    underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
-                   <TextInput style = {styles.TextInput} placeholder = "password"  placeholderTextColor='white'
+                   <TextInput style = {styles.TextInput} placeholder = "Password"  placeholderTextColor='white'
                    underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
-                   <TouchableOpacity onPress={()=>{loginHandler()}} style={styles.Log}><Text>Login</Text></TouchableOpacity>
+                   <TouchableOpacity onPress={()=>{loginHandler()}} style={styles.Log}><Text>LogIn</Text></TouchableOpacity>
                    <TouchableOpacity onPress = {()=>{navigation.navigate('SignUp')}}>
             <Text style={styles.Account}>Dont have an Account? <Text style={styles.Register}>Register</Text></Text></TouchableOpacity>
         </View>
-    </View>
-   </View> 
+       </View>
+    </View> 
    </ScrollView>
     <AwesomeAlert 
      show={errorAlert}
@@ -82,31 +82,37 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingTop: 40
      },
+
      Register: {
         color: 'coral',
         fontWeight: 'bold'
      },
+
      LoginRoom:{
-      backgroundColor:'white',
-       height:Height+75,
-       flexDirection:'column',
-       justifyContent:'space-around',
-       alignItems:'center',
-       overflow:'hidden'
+        backgroundColor:'white',
+        height:Height+75,
+        flexDirection:'column',
+        justifyContent:'space-around',
+        alignItems:'center',
+        overflow:'hidden'
        
      },
+
      Container:{
-        paddingBottom:10,
+        paddingTop:10,
         justifyContent: "center",
         backgroundColor: '#0F2D57',
         paddingLeft: 70,
         paddingRight: 70,
         borderRadius: 10,
-        height: (3*Height)/5,
+        height: (3*Height)/4.5,
+        marginBottom: 70
      },
+
      Login: {
         alignSelf: 'flex-start'
      },
+
      TextInput: {
         alignSelf: 'stretch',
         height : 40,
@@ -114,6 +120,7 @@ const styles = StyleSheet.create({
         color: 'white',
         borderEndWidth: 1
      },
+
      Text: {
         fontSize: 24,
         color: 'coral',
@@ -122,6 +129,7 @@ const styles = StyleSheet.create({
         borderBottomColor: 'red',
         borderBottomWidth: 1
      },
+
      Log:{
          alignSelf: 'flex-end',
          fontWeight: 'bold',
@@ -130,9 +138,10 @@ const styles = StyleSheet.create({
          borderRadius:3
          
      },
+
      logo:{
-        height:500,
-        width: 300,
+         height:500,
+         width: 300,
      }
 })
 export default Login;

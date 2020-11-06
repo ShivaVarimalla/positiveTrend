@@ -59,32 +59,32 @@ if(Mobile.length!=10 || parseInt(Mobile)==NaN){
     }
 }
     return(
-    <View style= {styles.RegisterContainer}>
-        <ScrollView>
-    <View style = {styles.Container}>
-    <View style={{flexDirection:'row',justifyContent:'center'}}>
+ <View style= {styles.RegisterContainer}>
+    <ScrollView>
+         <View style = {styles.Container}>
+            <View style={{flexDirection:'row',justifyContent:'center'}}>
                   <Image
                      style={{height:200,width:200}}
                      source={Trend}
                   />
             </View>
         <View style = {styles.Register}>
-        <Text style= {styles.Text}>Registration Form</Text>
-        <TextInput style = {styles.TextInput} placeholder = "userName" placeholderTextColor='white'
-        underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
-         <TextInput style = {styles.TextInput} placeholder = "password" placeholderTextColor='white'
-        underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
-         <TextInput style = {styles.TextInput} placeholder = "Re-Enterpassword" placeholderTextColor='white'
-        underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={ReEnterPassword} onChangeText={(text)=>{setReEnterPassword(text)}} />
-         <TextInput style = {styles.TextInput} placeholder = "email" placeholderTextColor='white'
-        underlineColorAndroid={'transparent'} text={email} onChangeText={(text)=>{setEmail(text)}}/>
-         <TextInput style = {styles.TextInput} placeholder = "Mobile no" placeholderTextColor='white'
-        underlineColorAndroid={'transparent'} text={Mobile} onChangeText={(text)=>{setMobile(text)}}/>
+                <Text style= {styles.Text}>Registration Form</Text>
+                <TextInput style = {styles.TextInput} placeholder = "UserName" placeholderTextColor='white'
+                    underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
+                <TextInput style = {styles.TextInput} placeholder = "Password" placeholderTextColor='white'
+                    underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
+                <TextInput style = {styles.TextInput} placeholder = "Re-Enter Password" placeholderTextColor='white'
+                    underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={ReEnterPassword} onChangeText={(text)=>{setReEnterPassword(text)}} />
+                <TextInput style = {styles.TextInput} placeholder = "Email" placeholderTextColor='white'
+                    underlineColorAndroid={'transparent'} text={email} onChangeText={(text)=>{setEmail(text)}}/>
+                <TextInput style = {styles.TextInput} placeholder = "Mobile No" placeholderTextColor='white'
+                    underlineColorAndroid={'transparent'} text={Mobile} onChangeText={(text)=>{setMobile(text)}}/>
         </View>
         <TouchableOpacity onPress={
             RegisterHandler
         } style={styles.Reg}><Text>Register</Text></TouchableOpacity>
-    </View>
+       </View>
     </ScrollView>
     <AwesomeAlert
           show={errorAlert}
@@ -100,10 +100,10 @@ if(Mobile.length!=10 || parseInt(Mobile)==NaN){
                 setErrorAlert(false)
                 return
               }
-              else{
+                 else{
                   setErrorAlert(false)
                     navigation.navigate('Login')
-              }
+                     }
           }}
         />
     </View>
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
 
  },
  Register: {
-    alignSelf: 'stretch'
+     alignSelf: 'stretch'
  },
  Text:{
      fontSize: 24,
@@ -147,15 +147,15 @@ const styles = StyleSheet.create({
      alignSelf: 'stretch',
      height : 40,
      marginBottom: 30,
-     color: 'black',
+     color: 'white',
      borderBottomColor: 'red',
      borderEndWidth: 1
  },
  Reg:{
-    alignSelf: 'flex-end',
-    backgroundColor: 'coral',
-    padding: 10,
-    borderRadius:3
+     alignSelf: 'flex-end',
+     backgroundColor: 'coral',
+     padding: 10,
+     borderRadius:3
  }
 })
 export default Signup;

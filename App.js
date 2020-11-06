@@ -41,12 +41,12 @@ let iconName;
 return <Entypo name={iconName} size={size} color={color} />;
 },
 })} >
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Chat" component={Chat} />
-      <Tab.Screen name="graph" component={Graph} />
-      <Tab.Screen name="calendar" component={Calendar} />
+       <Tab.Screen name="Home" component={Home} />
+       <Tab.Screen name="Chat" component={Chat} />
+       <Tab.Screen name="graph" component={Graph} />
+       <Tab.Screen name="calendar" component={Calendar} />
     </Tab.Navigator>
-    </NavigationContainer>
+  </NavigationContainer>
   );
 }
 else{

@@ -26,7 +26,7 @@ export default function Chat() {
   }, [])
  
   return (
-    <Fragment>
+  <Fragment>
       <InfoBar/>
     <GiftedChat
       messages={messages}
