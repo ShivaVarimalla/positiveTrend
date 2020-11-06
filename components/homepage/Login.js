@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
-import {Text, View,TouchableOpacity,StyleSheet,TextInput} from 'react-native'
+import {Text, View,TouchableOpacity,StyleSheet,TextInput,Image,Dimensions,ScrollView} from 'react-native'
 import AwesomeAlert from 'react-native-awesome-alerts';
+import Trend from '../../Icons/Trend.png';
+const Height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width;
+
 
 const Login = ({navigation,changeLog})=>{
     const [username, setUsername] = useState('');
@@ -26,19 +30,29 @@ const Login = ({navigation,changeLog})=>{
       }
     }
     return(
-        <View style= {styles.LoginRoom}>
+<View>
+   <ScrollView>
+  <View style= {styles.LoginRoom} >   
     <View style = {styles.Container}>
-        <View style = {styles.Login}>
-        <Text style= {styles.Text}>Login</Text>
-        <TextInput style = {styles.TextInput} placeholder = "Username"
-        underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
-         <TextInput style = {styles.TextInput} placeholder = "password"
-        underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
-         <TouchableOpacity onPress={()=>{loginHandler()}} style={styles.Log}><Text>Login</Text></TouchableOpacity>
-        <TouchableOpacity onPress = {()=>{navigation.navigate('SignUp')}}>
-        <Text style={styles.Account}>Dont have an Account? <Text style={styles.Register}>Register</Text></Text></TouchableOpacity>
+    <View style={{flexDirection:'row',justifyContent:'center'}}>
+                  <Image
+                     style={{height:200,width:200}}
+                     source={Trend}
+                  />
+               </View>
+         <View style = {styles.Login}>
+            <Text style= {styles.Text}>Login</Text>
+                  <TextInput style = {styles.TextInput} placeholder = "Username"  placeholderTextColor='white'
+                   underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
+                   <TextInput style = {styles.TextInput} placeholder = "password"  placeholderTextColor='white'
+                   underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
+                   <TouchableOpacity onPress={()=>{loginHandler()}} style={styles.Log}><Text>Login</Text></TouchableOpacity>
+                   <TouchableOpacity onPress = {()=>{navigation.navigate('SignUp')}}>
+            <Text style={styles.Account}>Dont have an Account? <Text style={styles.Register}>Register</Text></Text></TouchableOpacity>
         </View>
     </View>
+   </View> 
+   </ScrollView>
     <AwesomeAlert 
      show={errorAlert}
      showProgress={false}
@@ -59,43 +73,45 @@ const Login = ({navigation,changeLog})=>{
         }
      }}
      />
-   </View>
+</View>
     )}
 const styles = StyleSheet.create({
     Account: {
         alignSelf: 'center',
         fontWeight : 'bold',
-        color: 'black',
+        color: 'white',
         paddingTop: 40
      },
      Register: {
-        color: 'blue',
+        color: 'coral',
         fontWeight: 'bold'
      },
      LoginRoom:{
-        display: 'flex',
-        flex: 1,
-        backgroundColor: '#c7c1c2',
-        justifyContent: 'center',
-        alignItems: 'center',
+      backgroundColor:'white',
+       height:Height+75,
+       flexDirection:'column',
+       justifyContent:'space-around',
+       alignItems:'center',
+       overflow:'hidden'
        
      },
      Container:{
+        paddingBottom:10,
         justifyContent: "center",
-        backgroundColor: 'white',
+        backgroundColor: '#0F2D57',
         paddingLeft: 70,
         paddingRight: 70,
         borderRadius: 10,
-        height:400,
+        height: (3*Height)/5,
      },
      Login: {
-        alignSelf: 'stretch'
+        alignSelf: 'flex-start'
      },
      TextInput: {
         alignSelf: 'stretch',
         height : 40,
         marginBottom: 30,
-        color: 'black',
+        color: 'white',
         borderEndWidth: 1
      },
      Text: {
@@ -113,6 +129,10 @@ const styles = StyleSheet.create({
          padding: 10,
          borderRadius:3
          
+     },
+     logo:{
+        height:500,
+        width: 300,
      }
 })
 export default Login;

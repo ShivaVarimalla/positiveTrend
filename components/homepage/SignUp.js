@@ -1,9 +1,10 @@
 import React from 'react'
-import {Text, View,StyleSheet,TextInput,TouchableOpacity,Dimensions,ScrollView} from 'react-native'
+import {Text, View,StyleSheet,TextInput,TouchableOpacity,Dimensions,ScrollView,Image} from 'react-native'
 import { useState } from 'react'
 import AwesomeAlert from 'react-native-awesome-alerts';
 const windowWidth = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
+import Trend from '../../Icons/Trend.png';
 
 
 
@@ -61,17 +62,23 @@ if(Mobile.length!=10 || parseInt(Mobile)==NaN){
     <View style= {styles.RegisterContainer}>
         <ScrollView>
     <View style = {styles.Container}>
+    <View style={{flexDirection:'row',justifyContent:'center'}}>
+                  <Image
+                     style={{height:200,width:200}}
+                     source={Trend}
+                  />
+            </View>
         <View style = {styles.Register}>
         <Text style= {styles.Text}>Registration Form</Text>
-        <TextInput style = {styles.TextInput} placeholder = "userName"
+        <TextInput style = {styles.TextInput} placeholder = "userName" placeholderTextColor='white'
         underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
-         <TextInput style = {styles.TextInput} placeholder = "password"
+         <TextInput style = {styles.TextInput} placeholder = "password" placeholderTextColor='white'
         underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
-         <TextInput style = {styles.TextInput} placeholder = "Re-Enterpassword"
+         <TextInput style = {styles.TextInput} placeholder = "Re-Enterpassword" placeholderTextColor='white'
         underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={ReEnterPassword} onChangeText={(text)=>{setReEnterPassword(text)}} />
-         <TextInput style = {styles.TextInput} placeholder = "email"
+         <TextInput style = {styles.TextInput} placeholder = "email" placeholderTextColor='white'
         underlineColorAndroid={'transparent'} text={email} onChangeText={(text)=>{setEmail(text)}}/>
-         <TextInput style = {styles.TextInput} placeholder = "Mobile no"
+         <TextInput style = {styles.TextInput} placeholder = "Mobile no" placeholderTextColor='white'
         underlineColorAndroid={'transparent'} text={Mobile} onChangeText={(text)=>{setMobile(text)}}/>
         </View>
         <TouchableOpacity onPress={
@@ -105,17 +112,17 @@ const styles = StyleSheet.create({
     RegisterContainer:{
         display: 'flex',
         flex: 1,
-        backgroundColor: '#c7c1c2',
+        backgroundColor: 'white',
         justifyContent: 'center',
         alignItems: 'center',
      
     },
  Container:{
      justifyContent: "center",
-     backgroundColor: 'white',
-     paddingLeft: 70,
-     paddingRight: 70,
-     height: (3*Height)/4,
+     backgroundColor: '#0F2D57',
+     paddingLeft: 80,
+     paddingRight: 80,
+     height: (3*Height)/3.7,
      borderRadius: 10,
      shadowColor: 'blue',
      shadowOffset: { width: 2, height: 2 },
