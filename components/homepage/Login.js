@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {Text, View,TouchableOpacity,StyleSheet,TextInput,Image,Dimensions,ScrollView} from 'react-native'
 import AwesomeAlert from 'react-native-awesome-alerts';
-import Trend from '../../Icons/Trend.png';
+import Positive from '../../Icons/Positive.png';
 const Height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
@@ -37,7 +37,7 @@ const Login = ({navigation,changeLog})=>{
          <View style={{flexDirection:'row',justifyContent:'center'}}>
                   <Image
                      style={{height:200,width:200}}
-                     source={Trend}
+                     source={Positive}
                   />
          </View>
          <View style = {styles.Login}>
@@ -97,10 +97,11 @@ const Login = ({navigation,changeLog})=>{
           paddingTop:10,
           justifyContent: "center",
           backgroundColor: '#0F2D57',
-          paddingLeft: 70,
-          paddingRight: 70,
+          paddingLeft: 80,
+          paddingRight: 80,
           borderRadius: 10,
-          width:width-50
+          width:width-50,
+          alignContent: 'center'
        },
        Login: {
           alignSelf: 'flex-start'
@@ -110,7 +111,9 @@ const Login = ({navigation,changeLog})=>{
           height : 40,
           marginBottom: 30,
           color: 'white',
-          borderEndWidth: 1
+          borderEndWidth: 1,
+         
+       
        },
        Text: {
           fontSize: 24,
@@ -118,7 +121,8 @@ const Login = ({navigation,changeLog})=>{
           paddingBottom: 10,
           marginBottom: 40,
           borderBottomColor: 'red',
-          borderBottomWidth: 1
+          borderBottomWidth: 1,
+       
        },
        Log:{
            alignSelf: 'flex-end',

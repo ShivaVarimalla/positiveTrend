@@ -4,7 +4,7 @@ import { useState } from 'react'
 import AwesomeAlert from 'react-native-awesome-alerts';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
-import Trend from '../../Icons/Trend.png';
+import Positive from '../../Icons/Positive.png';
 
 
 
@@ -65,7 +65,7 @@ if(Mobile.length!=10 || parseInt(Mobile)==NaN){
             <View style={{flexDirection:'row',justifyContent:'center'}}>
                   <Image
                      style={{height:200,width:200}}
-                     source={Trend}
+                     source={Positive}
                   />
             </View>
         <View style = {styles.Register}>
