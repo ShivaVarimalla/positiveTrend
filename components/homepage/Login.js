@@ -46,7 +46,7 @@ const Login = ({navigation,changeLog})=>{
                    underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
                    <TextInput style = {styles.TextInput} placeholder = "Password"  placeholderTextColor='white'
                    underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
-                   <TouchableOpacity onPress={()=>{loginHandler()}} style={styles.Log}><Text>LogIn</Text></TouchableOpacity>
+                   <TouchableOpacity onPress={()=>{loginHandler()}} style={styles.Log}><Text>Login</Text></TouchableOpacity>
                    <TouchableOpacity onPress = {()=>{navigation.navigate('SignUp')}}>
             <Text style={styles.Account}>Dont have an Account? <Text style={styles.Register}>Register</Text></Text></TouchableOpacity>
         </View>
@@ -75,73 +75,61 @@ const Login = ({navigation,changeLog})=>{
      />
 </View>
     )}
-const styles = StyleSheet.create({
-    Account: {
-        alignSelf: 'center',
-        fontWeight : 'bold',
-        color: 'white',
-        paddingTop: 40
-     },
-
-     Register: {
-        color: 'coral',
-        fontWeight: 'bold'
-     },
-
-     LoginRoom:{
-        backgroundColor:'white',
-        height:Height+75,
-        flexDirection:'column',
-        justifyContent:'space-around',
-        alignItems:'center',
-        overflow:'hidden'
-       
-     },
-
-     Container:{
-        paddingTop:10,
-        justifyContent: "center",
-        backgroundColor: '#0F2D57',
-        paddingLeft: 70,
-        paddingRight: 70,
-        borderRadius: 10,
-        height: (3*Height)/4.5,
-        marginBottom: 70
-     },
-
-     Login: {
-        alignSelf: 'flex-start'
-     },
-
-     TextInput: {
-        alignSelf: 'stretch',
-        height : 40,
-        marginBottom: 30,
-        color: 'white',
-        borderEndWidth: 1
-     },
-
-     Text: {
-        fontSize: 24,
-        color: 'coral',
-        paddingBottom: 10,
-        marginBottom: 40,
-        borderBottomColor: 'red',
-        borderBottomWidth: 1
-     },
-
-     Log:{
-         alignSelf: 'flex-end',
-         fontWeight: 'bold',
-         backgroundColor: 'coral',
-         padding: 10,
-         borderRadius:3
-         
-     },
-
-     logo:{
-         height:500,
-         width: 300,
-     }
-})
+    const styles = StyleSheet.create({
+      Account: {
+          alignSelf: 'center',
+          fontWeight : 'bold',
+          color: 'white',
+          paddingTop: 20,
+          paddingBottom:20
+       },
+       Register: {
+          color: 'coral',
+          fontWeight: 'bold'
+       },
+       LoginRoom:{
+          backgroundColor:'white',
+          height:Height,
+          justifyContent:'center',
+          alignItems:'center'
+       },
+       Container:{
+          paddingTop:10,
+          justifyContent: "center",
+          backgroundColor: '#0F2D57',
+          paddingLeft: 70,
+          paddingRight: 70,
+          borderRadius: 10,
+          width:width-50
+       },
+       Login: {
+          alignSelf: 'flex-start'
+       },
+       TextInput: {
+          alignSelf: 'stretch',
+          height : 40,
+          marginBottom: 30,
+          color: 'white',
+          borderEndWidth: 1
+       },
+       Text: {
+          fontSize: 24,
+          color: 'coral',
+          paddingBottom: 10,
+          marginBottom: 40,
+          borderBottomColor: 'red',
+          borderBottomWidth: 1
+       },
+       Log:{
+           alignSelf: 'flex-end',
+           fontWeight: 'bold',
+           backgroundColor: 'coral',
+           padding: 10,
+           borderRadius:3,
+       },
+       logo:{
+           height:500,
+           width: 300,
+       }
+  })
 export default Login;

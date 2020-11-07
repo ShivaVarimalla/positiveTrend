@@ -2,7 +2,7 @@ import React from 'react'
 import {Text, View,StyleSheet,TextInput,TouchableOpacity,Dimensions,ScrollView,Image} from 'react-native'
 import { useState } from 'react'
 import AwesomeAlert from 'react-native-awesome-alerts';
-const windowWidth = Dimensions.get('window').width;
+const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 import Trend from '../../Icons/Trend.png';
 
@@ -108,54 +108,48 @@ if(Mobile.length!=10 || parseInt(Mobile)==NaN){
         />
     </View>
     )}
-const styles = StyleSheet.create({
-    RegisterContainer:{
-        display: 'flex',
-        flex: 1,
-        backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center',
-     
-    },
- Container:{
-     justifyContent: "center",
-     backgroundColor: '#0F2D57',
-     paddingLeft: 80,
-     paddingRight: 80,
-     height: (3*Height)/3.7,
-     borderRadius: 10,
-     shadowColor: 'blue',
-     shadowOffset: { width: 2, height: 2 },
-     shadowOpacity: 0.8,
-     shadowRadius: 2,
-     elevation: 2,
-     marginTop: 50
-
- },
- Register: {
-     alignSelf: 'stretch'
- },
- Text:{
-     fontSize: 24,
-     color: 'coral',
-     paddingBottom: 10,
-     marginBottom: 40,
-     borderBottomColor: 'red',
-     borderBottomWidth: 1
- },
- TextInput : {
-     alignSelf: 'stretch',
-     height : 40,
-     marginBottom: 30,
-     color: 'white',
-     borderBottomColor: 'red',
-     borderEndWidth: 1
- },
- Reg:{
-     alignSelf: 'flex-end',
-     backgroundColor: 'coral',
-     padding: 10,
-     borderRadius:3
- }
-})
+    const styles = StyleSheet.create({
+        RegisterContainer:{
+            display: 'flex',
+            flex: 1,
+            backgroundColor: 'white',
+            justifyContent: 'center',
+            alignItems: 'center',
+        },
+     Container:{
+         justifyContent: "center",
+         backgroundColor: '#0F2D57',
+         paddingLeft: 80,
+         paddingRight: 80,
+         paddingTop:10,
+         paddingBottom:10,
+         borderRadius: 10,
+         shadowColor: 'blue',
+         shadowOffset: { width: 2, height: 2 },
+         shadowOpacity: 0.8,
+         shadowRadius: 2,
+         elevation: 2
+     },
+     Text:{
+         fontSize: 24,
+         color: 'coral',
+         paddingBottom: 10,
+         marginBottom: 40,
+         borderBottomColor: 'red',
+         borderBottomWidth: 1
+     },
+     TextInput : {
+         height : 40,
+         marginBottom: 30,
+         color: 'white',
+         borderBottomColor: 'red',
+         borderEndWidth: 1
+     },
+     Reg:{
+         alignSelf: 'flex-end',
+         backgroundColor: 'coral',
+         padding: 10,
+         borderRadius:3
+     }
+    })
 export default Signup;
