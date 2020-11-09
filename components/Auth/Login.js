@@ -4,6 +4,9 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 import Positive from '../../Icons/Positive.png';
 const Height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios'
+import qs from 'qs'
 
 
 const Login = ({navigation,changeLog})=>{
@@ -15,19 +18,40 @@ const Login = ({navigation,changeLog})=>{
     const [cancelText, setCancelText]  = useState('Ok');
 
     const loginHandler =()=>{
-      if(username<6){
+      if(username.length<6){
          setTitle('Some error occured')
          setMessage('Invalid username')
          setErrorAlert(true)
          return;
       }
-      if(Password<6){
+      if(Password.length<6){
          setTitle('Some error occured')
          setMessage('Invalid password!')
          setCancelText('Ok')
          setErrorAlert(true)
          return;
       }
+      var data = qs.stringify({
+         'username': username,
+        'password': Password 
+        });
+        var config = {
+          method: 'post',
+          url: 'https://positive-trend.herokuapp.com/user/login',
+          headers: { },
+          data : data
+        };
+        
+        axios(config)
+        .then(async function (response) {
+          if(response.status == 200){
+            await AsyncStorage.setItem('usertoken', response.data.token)
+            changeLog()
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
     return(
 <View>
@@ -104,7 +128,7 @@ const Login = ({navigation,changeLog})=>{
           alignContent: 'center'
        },
        Login: {
-          alignSelf: 'flex-start'
+          alignSelf: 'center'
        },
        TextInput: {
           alignSelf: 'stretch',

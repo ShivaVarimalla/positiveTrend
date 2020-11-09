@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react'
-import Login from '../homepage/Login.js'
-import SignUp from '../homepage/SignUp.js';
+import Login from '../Auth/Login.js'
+import SignUp from '../Auth/SignUp.js';
 
 const Screen = ({changeLog})=>{
     const HomeStack = createStackNavigator();

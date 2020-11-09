@@ -1,46 +1,62 @@
 
-import React from 'react'
-import { View,Button, Text,Modal} from 'react-native'
+import React, {useState} from 'react';
+import { View,Text,StyleSheet,TouchableOpacity} from 'react-native'
+import AwesomeAlert from 'react-native-awesome-alerts';
 
-class Emergency extends React.Component{
 
-    constructor()
-        {
-            super();
-            this.state={
-                show:false
-            }
-        }
-
-    render() {
-        return(
-            <View style={{BackgroundColor:"#FF0000", justifyContent:"flex-start", alignItems:"flex-end"}}>
-            <Button title="EMERGENCY" onPress={()=>{this.setState({show:true})}}></Button>
-            <Modal
-            transparent={true}
-            visible={this.state.show}
-            >
-           <View style={{BackgroundColor:"#000000aa", flex:1}}>
-            <View style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
-            <Text style={{fontSize: 50}}>Do you need help? </Text>
-            <Button title="NO" onPress={()=>{this.setState({show:false})}}></Button>
-            <Button title="YES" onPress={()=>{this.setState({show:true})}}></Button>
-                <Modal
-                transparent={true}
-                visible={this.state.show}
-                >
-                <View style={{BackgroundColor:"#000000aa", flex:1}}>
-                <View style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
-                <Text style={{fontSize: 50}}>Contact 9152987821 </Text>
-                </View>
-                </View>
-                </Modal>
-            </View>
-            </View>
-            </Modal>
-            </View>
-        )
-    }
+const Emergency=()=>{
+const [emergency, setEmergency] = useState(false)
+const [contact, setContact] = useState(false)
+    return(
+        <View style = {styles.Main}> 
+        <View style={styles.container}>
+            <TouchableOpacity onPress={()=>{setEmergency(true)}}><Text>Emergency</Text></TouchableOpacity>
+        </View>
+        <AwesomeAlert 
+                show={emergency}
+                showProgress={false}
+                title= 'Emergency'
+                message= 'Do u need any help?'
+                closeOnTouchOutside={false}
+                closeOnHardwareBackPress={false}
+                showConfirmButton={true}
+                cancelText="NO"
+                confirmText="Yes"
+                confirmButtonColor="#DD6B55"
+                showCancelButton={true}
+                onCancelPressed={() => {
+                    setEmergency(false)
+                  }}
+                  onConfirmPressed={() => {
+                    setEmergency(false)
+                    setContact(true);
+                  }}
+        />
+         <AwesomeAlert
+          show={contact}
+          showProgress={false}
+          title="Contact This Number"
+          message="9553552935"
+          closeOnTouchOutside={true}
+          closeOnHardwareBackPress={false}
+          showCancelButton={true}
+          cancelText="No, cancel"
+          onCancelPressed={() => {
+            setContact(false)
+          }}
+        />
+        </View>
+    )
 }
 
+const styles = StyleSheet.create({
+   Main:{
+       
+   },
+   container:{
+   
+    
+    
+   }
+})
 export default Emergency;

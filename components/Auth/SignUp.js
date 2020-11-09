@@ -5,6 +5,8 @@ import AwesomeAlert from 'react-native-awesome-alerts';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 import Positive from '../../Icons/Positive.png';
+import axios from 'axios'
+import qs from 'qs';
 
 
 
@@ -13,7 +15,6 @@ const Signup = ({navigation})=>{
     const [Password, setPassword] = useState('');
     const [ReEnterPassword, setReEnterPassword] = useState('');
     const [email, setEmail] = useState('')
-    const [Mobile, setMobile] = useState('');
     const [errorAlert, setErrorAlert]  = useState(false);
     const [message, setMessage]  = useState('');
     const [title, setTitle]  = useState('');
@@ -50,13 +51,32 @@ if(!validateEmail(email)){
    setErrorAlert(true)
    return;
 }
-if(Mobile.length!=10 || parseInt(Mobile)==NaN){
-   setTitle('Some error occured')
-   setMessage('Invalid mobile Number ')
-   setCancelText('Ok')
-   setErrorAlert(true)
-   return;
-    }
+
+var data = qs.stringify({
+ 'username': username,
+'email': email,
+'password': Password
+});
+var config = {
+  method: 'post',
+  url: 'https://positive-trend.herokuapp.com/user/register',
+  headers: { },
+  data : data
+};
+
+axios(config)
+.then(function (response) {
+ if(response.status == 200){
+    setTitle('Success')
+    setMessage('Successfully created your account Please Login! ')
+    setCancelText('Login')
+    setErrorAlert(true)
+ }
+})
+.catch(function (error) {
+  console.log(error);
+});
+
 }
     return(
  <View style= {styles.RegisterContainer}>
@@ -72,14 +92,13 @@ if(Mobile.length!=10 || parseInt(Mobile)==NaN){
                 <Text style= {styles.Text}>Registration Form</Text>
                 <TextInput style = {styles.TextInput} placeholder = "UserName" placeholderTextColor='white'
                     underlineColorAndroid={'transparent'} text={username} onChangeText={(text)=>{setUsername(text)}}/>
+                <TextInput style = {styles.TextInput} placeholder = "Email" placeholderTextColor='white'
+                    underlineColorAndroid={'transparent'} text={email} onChangeText={(text)=>{setEmail(text)}}/>
                 <TextInput style = {styles.TextInput} placeholder = "Password" placeholderTextColor='white'
                     underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={Password} onChangeText={(text)=>{setPassword(text)}} />
                 <TextInput style = {styles.TextInput} placeholder = "Re-Enter Password" placeholderTextColor='white'
                     underlineColorAndroid={'transparent'}  secureTextEntry = {true} text={ReEnterPassword} onChangeText={(text)=>{setReEnterPassword(text)}} />
-                <TextInput style = {styles.TextInput} placeholder = "Email" placeholderTextColor='white'
-                    underlineColorAndroid={'transparent'} text={email} onChangeText={(text)=>{setEmail(text)}}/>
-                <TextInput style = {styles.TextInput} placeholder = "Mobile No" placeholderTextColor='white'
-                    underlineColorAndroid={'transparent'} text={Mobile} onChangeText={(text)=>{setMobile(text)}}/>
+               
         </View>
         <TouchableOpacity onPress={
             RegisterHandler
