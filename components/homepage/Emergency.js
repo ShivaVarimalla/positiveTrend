@@ -14,14 +14,14 @@ class Emergency extends React.Component{
 
     render() {
         return(
-            <view style={{BackgroundColor:"#FF0000", flexDirection: "column", alignItems:"right", top:1}}>
+            <View style={{BackgroundColor:"#FF0000", flexDirection: "column", alignItems:"right", top:1}}>
             <Button title="EMERGENCY" onPress={()=>{this.setState({show:true})}}></Button>
             <Modal
             transparent={true}
             visible={this.state.show}
             >
-           <view style={{BackgroundColor:"#000000aa", flex:1}}>
-            <view style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
+           <View style={{BackgroundColor:"#000000aa", flex:1}}>
+            <View style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
             <Text style={{fontSize: 50}}>Do you need help? </Text>
             <Button title="NO" onPress={()=>{this.setState({show:false})}}></Button>
             <Button title="YES" onPress={()=>{this.setState({show:true})}}></Button>
@@ -29,16 +29,16 @@ class Emergency extends React.Component{
                 transparent={true}
                 visible={this.state.show}
                 >
-                <view style={{BackgroundColor:"#000000aa", flex:1}}>
-                <view style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
+                <View style={{BackgroundColor:"#000000aa", flex:1}}>
+                <View style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
                 <Text style={{fontSize: 50}}>Contact 9152987821 </Text>
-                </view>
-                </view>
+                </View>
+                </View>
                 </Modal>
-            </view>
-            </view>
+            </View>
+            </View>
             </Modal>
-            </view>
+            </View>
         )
     }
 }
