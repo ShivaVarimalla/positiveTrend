@@ -14,7 +14,7 @@ class Emergency extends React.Component{
 
     render() {
         return(
-            <view style={{flex: 1, marginTop:100}}>
+            <view style={{BackgroundColor:"#FF0000", flex: 1, marginTop:100}}>
             <Button title="EMERGENCY" onPress={()=>{this.setState({show:true})}}></Button>
             <Modal
             transparent={true}
