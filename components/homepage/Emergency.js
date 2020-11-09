@@ -32,9 +32,9 @@ class Emergency extends React.Component{
                 <view style={{BackgroundColor:"#000000aa", flex:1}}>
                 <view style={{BackgroundColor:"#fffffff", margin:50, padding:40, borderRadius:10}}>
                 <Text style={{fontSize: 50}}>Contact 9152987821 </Text>
+                </view>
+                </view>
                 </Modal>
-                </view>
-                </view>
             </view>
             </view>
             </Modal>
