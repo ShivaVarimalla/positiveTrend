@@ -7,7 +7,10 @@ const HomeStack = createStackNavigator();
 
 function Home() {
 return (
+     <View>
      <Text>Home</Text>
+     <Emergency/>
+     </View>
 );
 } 
 
