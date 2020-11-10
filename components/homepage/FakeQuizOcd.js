@@ -112,8 +112,8 @@ class FakeQuizOcd extends React.Component{
     };
       let { questions, answers, correctAnswer, clickedAnswer, step, score} = this.state;
     return(
-        <View style={Styles.main}>
-        <View style={Styles.Quiz}>
+        <View style={styles.main}>
+        <View style={styles.Quiz}>
             {step <= Object.keys(questions).length ?
             (<View>
                 <FakeQuestion question={questions[step]}/>
