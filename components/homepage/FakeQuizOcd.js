@@ -1,5 +1,5 @@
 import React from 'react'
-import {View,Text,Button} from 'react-native'
+import {View,Text,Button,TouchableOpacity,StyleSheet} from 'react-native'
 import Fakeanswer from './answer/Fakeanswer'
 import FakeQuestion from './question/FakeQuestion'
 
@@ -103,9 +103,17 @@ class FakeQuizOcd extends React.Component{
         })
     }
   render(){
+    function displayJsxMessage(){
+        if (score > 3.5) {
+            return <Text> We advice you to make an exercise of not caring about an activity daily, try to progessively get less affected by reactions from your environment.Consult our therapist for more detailed exercise </Text>;
+        } else {
+            return <Text>  We advice you to not let thoughts control your actions, focus more on why the thoughts are occuring</Text>;
+        }
+    };
       let { questions, answers, correctAnswer, clickedAnswer, step, score} = this.state;
     return(
-        <View>
+        <View style={Styles.main}>
+        <View style={Styles.Quiz}>
             {step <= Object.keys(questions).length ?
             (<View>
                 <FakeQuestion question={questions[step]}/>
@@ -116,25 +124,61 @@ class FakeQuizOcd extends React.Component{
                 correctAnswer={correctAnswer}
                 clickedAnswer={clickedAnswer}
                 />
-                <Button
+                <TouchableOpacity style={styles.Button}
                 title = 'next'
                 disabled= {
                     clickedAnswer && Object.keys(questions).length >= step
                     ? false : true
                 }
                 onPress={() => this.nextStep(step)}
-                />
+                ><Text style={styles.Text}>Next</Text></TouchableOpacity>
                 </View>) : (
-                    <View>
+                    <View style={styles.complete}>
                         <Text>you have completed the qustionnaire</Text>
-                <Text>Your score is: {score} of {Object.keys(questions).length}</Text>
+                        <Text>{ displayJsxMessage()} </Text>
                 <Text>Check out graphs tab</Text>
                     </View>
                 
                 )}
                 
         </View>
+       </View> 
     )
     }
 }
+const styles = StyleSheet.create({
+    Quiz:{
+        backgroundColor: 'white',
+        flex: 1
+    },
+    main:{
+        flex: 1
+    }, 
+    Button : {
+        flexDirection: 'row',
+        backgroundColor:'#55BF98',
+        padding: 10,
+        margin : 10,
+        justifyContent: 'center',
+        elevation: 4,
+        borderRadius: 6,
+        color: 'black'
+    },
+    Text:{
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    complete:{
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 5,
+        backgroundColor: '#f4f4f4',
+        marginTop: 100,
+        margin: 10,
+        padding: 20,
+        elevation: 5,
+
+    }
+    
+})
 export default FakeQuizOcd;

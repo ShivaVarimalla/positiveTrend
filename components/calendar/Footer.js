@@ -61,15 +61,15 @@ const styles = StyleSheet.create({
         zIndex: 1,
         position: 'absolute',
         right: 20,
-        top: -50,
-        width: 100,
-        height: 100,
+        top: -30,
+        width: 75,
+        height: 75,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 2,
-        borderColor: '#fff',
-        backgroundColor: '#fa3664'
+        borderColor: '#e0ffff',
+        backgroundColor: '#b0c4de'
     },
     btnText: {
         color: '#fff',
@@ -81,6 +81,6 @@ const styles = StyleSheet.create({
         padding: 20,
         fontSize: 16,
         color: '#fff',
-        backgroundColor: '#262526'
+        backgroundColor: '#92d4bc'
     }
 });

@@ -8,29 +8,32 @@ const InfoBar = ({room,changeDrawer})=>(
         <TouchableOpacity onPress={()=>{changeDrawer()}} style={styles.leftInnerContainer}>
                <FontAwesome name="group" size={24} color="black" />
                 <Text>Soal</Text>
-        </TouchableOpacity>
-       
+        </TouchableOpacity> 
     </View>
 )
 
 const styles = StyleSheet.create({
-
+    chathead:{
+  
+        fontFamily:'serif',
+        fontWeight: 'bold',
+        color: '#3391a6'
+    },
     InfoBar : {
         alignSelf: 'stretch',
         flexDirection: 'row',
-        alignItems: 'center',
         justifyContent: 'space-between',
         backgroundColor: '#55BF98',
         borderRadius: 4,
         height: 50,
-        marginTop: 40
-      },
+        marginTop: 40,
+        fontWeight: 'bold',
+        alignItems: 'center',
+        justifyContent: 'center'      },
     leftInnerContainer :{
         width: 50,
         flexDirection: 'row',
-        alignItems: "center",
-        justifyContent: 'space-around',
-        marginLeft: 5,
+        marginLeft: 1,
         color: 'white',
       }
 })

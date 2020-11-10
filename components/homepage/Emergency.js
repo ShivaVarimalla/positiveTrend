@@ -10,12 +10,12 @@ const [contact, setContact] = useState(false)
     return(
         <View style = {styles.Main}> 
         <View style={styles.container}>
-            <TouchableOpacity onPress={()=>{setEmergency(true)}}><Text>Emergency</Text></TouchableOpacity>
+            <TouchableOpacity style={{alignSelf: 'flex-end'}}onPress={()=>{setEmergency(true)}}><Text style={styles.emergencytext}>EMERGENCY</Text></TouchableOpacity>
         </View>
         <AwesomeAlert 
                 show={emergency}
                 showProgress={false}
-                title= 'Emergency'
+                title= 'EMERGENCY'
                 message= 'Do u need any help?'
                 closeOnTouchOutside={false}
                 closeOnHardwareBackPress={false}
@@ -50,13 +50,17 @@ const [contact, setContact] = useState(false)
 }
 
 const styles = StyleSheet.create({
-   Main:{
-       
-   },
-   container:{
-   
-    
-    
+  Main:{
+    alignSelf: 'flex-end',
+    marginTop: 20,
+    flexDirection: 'row',
+    marginRight: 20
+  },
+   emergencytext:{
+   color: 'black',
+    backgroundColor:'#e60918',
+    padding: 10,
+    borderRadius:6
    }
 })
 export default Emergency;

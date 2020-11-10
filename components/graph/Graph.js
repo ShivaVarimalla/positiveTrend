@@ -6,7 +6,7 @@ import {
 const Graph =({ scores})=>(
     <LineChart
     data={{
-      labels: ["Sunday","Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      labels: ["Sun","Mon", "Tues", "Wed", "Thur", "Fri", "Sat"],
       datasets: [
         {
           data:  scores
@@ -19,25 +19,26 @@ const Graph =({ scores})=>(
     yAxisSuffix=""
     yAxisInterval={1} // optional, defaults to 1
     chartConfig={{
-      backgroundColor: "#ff8000",
-      backgroundGradientFrom: "#ff8000",
-      backgroundGradientTo: "#ff8000",
+
+      backgroundColor: "#ece4f2",
+      backgroundGradientFrom: "#ece4f2",
+      backgroundGradientTo: "#ece4f2",
       decimalPlaces: 2, // optional, defaults to 2dp
       color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+      labelColor: (opacity = 1) => `rgba(0,0,0, ${opacity})`,
       style: {
         borderRadius: 16
       },
       propsForDots: {
         r: "6",
         strokeWidth: "2",
-        stroke: "#aaff00"
+        stroke: "#b561ff"
       }
     }}
     bezier
     style={{
       marginVertical: 8,
-      borderRadius: 16
+      borderRadius: 16,
     }}
   />
 )

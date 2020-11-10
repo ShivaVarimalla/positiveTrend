@@ -16,6 +16,13 @@ export default class Header extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    text: {
+        
+        fontSize: 18,
+        letterSpacing: 1,
+        fontWeight: 'bold',
+        color: '#3391a6',
+        fontFamily: 'serif'},
     header: {
         width: '100%',
         height: '18%',
@@ -23,12 +30,8 @@ const styles = StyleSheet.create({
         borderBottomColor: "#ddd",
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fa3664'
-    },
-    text: {
-        fontSize: 18,
-        letterSpacing: 1.1,
-        fontWeight: 'bold',
-        color: '#fff'
+        backgroundColor: '#dae4ed',
+        
     }
+   
 });

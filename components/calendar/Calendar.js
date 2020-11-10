@@ -165,7 +165,7 @@ export default class Calendar extends React.Component {
                     key={i} style={styles.note} 
                     onPress={ () => this.removeNote(i) }
                 >
-                    <Text style={styles.noteText}>{new Date().toString().substring(0,15)}</Text>
+                    <Text style={styles.noteTextDate}>{new Date().toString().substring(0,15)}</Text>
                     <Text style={styles.noteText}>{note}</Text>
                 </TouchableOpacity>
             );
@@ -208,16 +208,23 @@ const styles = StyleSheet.create({
     },
     note: {
         margin: 20,
-        padding: 20,
+        padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
         borderWidth: 2,
-        backgroundColor: '#f9f9f9',
+        backgroundColor: '#ebd9fa',
         borderColor: '#ddd',
+        fontWeight: 'bold',
         borderRadius: 10,
     },
     noteText: {
-        fontSize: 14,
+        
+        fontSize: 13,
         padding: 20,
+        fontFamily:'serif'
+    },
+    noteTextDate:{
+        fontFamily:'serif',
+        fontSize: 15
     }
 });
