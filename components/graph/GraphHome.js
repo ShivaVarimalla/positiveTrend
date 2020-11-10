@@ -1,5 +1,5 @@
 import React from 'react'
-import {View, Text,ScrollView} from 'react-native'
+import {View, Text,ScrollView,StyleSheet} from 'react-native'
 import Graph from './Graph'
 
 const GraphHome =({ mainScores,
@@ -8,17 +8,25 @@ const GraphHome =({ mainScores,
     stressScores})=>{
     return(
         <View>
-            <ScrollView>
-                    <Text>General-Quiz</Text>
+            <ScrollView >
+                    <Text style = {styles.Main}>General-Quiz</Text>
                         <Graph scores = {mainScores} />
-                    <Text>Addiction-Quiz</Text>
+                    <Text style = {styles.Main}>Addiction-Quiz</Text>
                         <Graph scores = {addictionScores}/>
-                    <Text>Stress-Quiz</Text>
+                    <Text style = {styles.Main} >Stress-Quiz</Text>
                         <Graph scores = {ocdScores}/>
-                    <Text>Ocd-Quiz</Text>
+                    <Text  style = {styles.Main}>Ocd-Quiz</Text>
                         <Graph scores = {stressScores}/>
             </ScrollView>
         </View>
     )
 }
+const styles = StyleSheet.create({
+    Main:{
+        fontSize:15,
+        fontFamily:'sans-serif',
+        textAlign: 'center',
+        fontWeight: 'bold'
+    }
+  })
 export default GraphHome

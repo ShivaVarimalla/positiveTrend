@@ -1,5 +1,5 @@
 const Config = {
-	title: 'Journal'
+	title: 'JOURNAL'
 }
 
 export default Config;
