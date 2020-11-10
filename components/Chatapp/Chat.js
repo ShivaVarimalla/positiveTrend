@@ -1,10 +1,12 @@
 import React, { useState, useCallback, useEffect,Fragment } from 'react'
-import { View,Text } from 'react-native';
+import { View,Text,Dimensions } from 'react-native';
 import { GiftedChat,Bubble } from 'react-native-gifted-chat'
 import InfoBar from './InfoBar'
 import io from "socket.io-client";
 import axios from 'axios'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Drawer from 'react-native-drawer'
+const Width = Dimensions.get('window').width;
  
 let socket 
 const ENDPOINT = 'https://positive-trend.herokuapp.com/';
@@ -13,11 +15,11 @@ socket = io(ENDPOINT)
 export default function Chat() {
   const [name, setName] = useState('');
   const [room, setRoom] = useState('');
-  const [users, setUsers] = useState('');
+  const [users, setUsers] = useState([]);
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [flag, setFlag]=useState(0);
- 
+  const [draweropen, setDrawerOpen] = useState(false)
   
 
   let user;
@@ -47,6 +49,10 @@ export default function Chat() {
             alert(error);
           }
         });
+        socket.on("roomData", ({ users }) => {
+          console.log(users)
+          setUsers(users);
+        });
       }
     })
     .catch(function (error) {
@@ -62,6 +68,7 @@ export default function Chat() {
         _id : message.id,
         text : message.text,
         createdAt: new Date(),
+        system : (message.user == 'admin'),
         user: {
           _id: message._id,
           name: message.user,
@@ -85,10 +92,24 @@ export default function Chat() {
     console.log(messages)
     socket.emit('sendMessage', messages[0].text, () => setMessage(''));
   }, [])
+  
+  const Online = users.map((u,i)=>{
+    return(
+    <Text key={i}> {u.name}</Text>
+    )
+  })
  
   return (
-  <Fragment>
-      <InfoBar/>
+    <Drawer
+    tapToClose={true}
+    openDrawerOffset={0.2} 
+    content={<View style={{flex: 1, justifyContent: 'center', alignItems: 'center', zIndex:1}}>{Online}</View>}
+    open = {draweropen}
+    >  
+      <InfoBar changeDrawer={()=>{
+        let toggle = draweropen
+        setDrawerOpen(!toggle)
+      }}/>
     <GiftedChat
       messages={messages}
       renderUsernameOnMessage={true}
@@ -98,7 +119,7 @@ export default function Chat() {
       }}
       renderBubble={renderBubble}
     />
-  </Fragment>
+  </Drawer>
   )
     }
 
@@ -111,11 +132,11 @@ function renderBubble(props) {
       wrapperStyle={{
         left: {
           // Here is the color change
-          backgroundColor: '#8caebd'
+          backgroundColor: '#55BF98'
         },
         right: {
           // Here is the color change
-          backgroundColor: '#85809c'
+          backgroundColor: '#55BF98'
         }
       }}
       textStyle={{

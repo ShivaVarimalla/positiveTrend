@@ -1,13 +1,14 @@
 import React from 'react'
-import { StyleSheet, Text, View,Image,Dimensions } from 'react-native';
+import { StyleSheet, Text, View,Image,Dimensions,TouchableOpacity } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
-const InfoBar = ({room})=>(
+
+const InfoBar = ({room,changeDrawer})=>(
     <View style = {styles.InfoBar}>
-        <View style={styles.leftInnerContainer}>
+        <TouchableOpacity onPress={()=>{changeDrawer()}} style={styles.leftInnerContainer}>
                <FontAwesome name="group" size={24} color="black" />
                 <Text>Soal</Text>
-        </View>
+        </TouchableOpacity>
        
     </View>
 )
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        backgroundColor: 'green',
+        backgroundColor: '#55BF98',
         borderRadius: 4,
         height: 50,
         marginTop: 40
